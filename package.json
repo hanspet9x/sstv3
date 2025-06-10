@@ -1,0 +1,18 @@
+{
+  "name": "sstv3",
+  "packageManager": "yarn@4.7.0",
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "joi": "^17.13.3",
+    "sst": "3.17.4"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.149",
+    "@types/date-fns": "^2.6.3",
+    "@types/joi": "^17.2.3"
+  },
+  "scripts": {
+    "dev": "sst dev --stage testsstv3",
+    "remove": "sst remove --stage testsstv3"
+  }
+}
