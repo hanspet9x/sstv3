@@ -12,7 +12,7 @@
     "@types/joi": "^17.2.3"
   },
   "scripts": {
-    "dev": "sst dev --stage testsstv3",
+    "dev": "sst dev --stage testsstv3 --mode=mono",
     "remove": "sst remove --stage testsstv3"
   }
 }

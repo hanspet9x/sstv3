@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.yarn
+      - ~/.aws:/root/.aws:ro  # Mount AWS credentials in read-only mode
+    environment:
+      - AWS_PROFILE=sandboxDev
+      - AWS_REGION=eu-west-1
+      - SST_STAGE=testsstv3
+    ports:
+      - "3000:3000"  # Adjust the port if your SST app uses a different port
+    tty: true
+    stdin_open: true
+    # Ensure proper output handling
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # Network configuration
+    # network_mode: "host"  # Use host network mode for better connectivity
+    # dns:
+    #   - 8.8.8.8
+    #   - 8.8.4.4
